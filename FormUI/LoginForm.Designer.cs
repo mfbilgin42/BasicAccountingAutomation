@@ -1,6 +1,6 @@
 ﻿namespace FormUI
 {
-    partial class Form_Login
+    partial class LoginForm
     {
         /// <summary>
         ///  Required designer variable.
@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form_Login));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(LoginForm));
             this.button_close = new System.Windows.Forms.PictureBox();
             this.button_collaps = new System.Windows.Forms.PictureBox();
             this.groupBox_login = new System.Windows.Forms.GroupBox();
@@ -145,7 +145,7 @@
             this.textBox_user_name.TabIndex = 0;
             this.textBox_user_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // Form_Login
+            // LoginForm
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(123)))), ((int)(((byte)(182)))));
@@ -155,7 +155,7 @@
             this.Controls.Add(this.button_close);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Name = "Form_Login";
+            this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
             this.Load += new System.EventHandler(this.Form_Login_Load);

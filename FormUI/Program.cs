@@ -28,7 +28,7 @@ namespace FormUI
             var host = CreateHostBuilder().Build();
             ServiceProvider = host.Services;
 
-            Application.Run(ServiceProvider.GetRequiredService<Form_Login>());
+            Application.Run(ServiceProvider.GetRequiredService<LoginForm>());
 
         }
         public static IServiceProvider ServiceProvider { get; private set; }
@@ -41,7 +41,7 @@ namespace FormUI
                     services.AddTransient<IAuthService, AuthManager>();
                     services.AddTransient<IUserDal, EfUserDal>();
 
-                    services.AddTransient<Form_Login>();
+                    services.AddTransient<LoginForm>();
                 });
         }
 

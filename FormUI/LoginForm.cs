@@ -12,11 +12,11 @@ using System.Windows.Forms;
 
 namespace FormUI
 {
-    public partial class Form_Login : Form
+    public partial class LoginForm : Form
     {
         private readonly IUserService _userService;
         private readonly IAuthService _authService;
-        public Form_Login(IUserService userService, IAuthService authService)
+        public LoginForm(IUserService userService, IAuthService authService)
         {
             _userService = userService;
             _authService = authService;
@@ -27,13 +27,14 @@ namespace FormUI
         {
             button_hide_password.Visible = false;
             var result = _userService.GetAll().Data;
-            textBox_user_name.Text = result[0].UserName;
             if (result.Count < 1)
             {
-                Close();
-                //!!! Create Toast !!!
                 //!!! Open Register Form!!!
+                Form registerForm = new RegisterForm(_authService,_userService);
+                registerForm.Show();
+                
             }
+            //textBox_user_name.Text = result[0].UserName;
         }
         private void button_close_Click(object sender, EventArgs e)
         {
@@ -69,7 +70,7 @@ namespace FormUI
 
             };
             var result = _authService.Login(userForAuthDto);
-            
+            MessageBox.Show(result.Message);
         }
     }
 }

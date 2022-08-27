@@ -1,6 +1,7 @@
 ﻿using Business.Abstract;
 using Business.Contants;
 using Core.Entities.Concrete;
+using Core.Utilities.Business;
 using Core.Utilities.Results;
 using Core.Utilities.Security.Hashing;
 using Entities.Dtos;
@@ -76,6 +77,12 @@ namespace Business.Concrete
 
         public IResult Register(UserForAuthDto userForAuthDto)
         {
+            IResult businessRuleResult = BusinessRules.Run(CheckIfUserNameLengthLessThanThree(userForAuthDto.UserName));
+
+            if (businessRuleResult != null)
+            {
+                return businessRuleResult;
+            }
             byte[] passwordHash, passwordSalt;
             HashingHelper.CreatePasswordHash(userForAuthDto.Password,out passwordHash, out passwordSalt);
             User user = new User
@@ -94,6 +101,14 @@ namespace Business.Concrete
             if (userToCheck != null)
             {
                 return new ErrorResult(Messages.UserAlreadyExist);
+            }
+            return new SuccessResult();
+        }
+        private IResult CheckIfUserNameLengthLessThanThree(string userName)
+        {
+            if (userName.Length <= 3)
+            {
+                return new ErrorResult(Messages.UserNameLengthMustBeMoreThanThree);
             }
             return new SuccessResult();
         }

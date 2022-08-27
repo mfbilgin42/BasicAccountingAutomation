@@ -16,6 +16,7 @@ namespace Business.Contants
         public const string PasswordsSame = "Yeni Parola Eskisi ile Aynı Olamaz";
         public const string UserAlreadyExist = "Kullanıcı Adı Eskisi ile Aynı Olamaz";
         public const string LoginSuccessful = "Giriş Başarılı";
+        public const string UserNameLengthMustBeMoreThanThree = "Kullanıcı Adı 3 Karakterden Uzun Olmalı";
 
     }
 }
