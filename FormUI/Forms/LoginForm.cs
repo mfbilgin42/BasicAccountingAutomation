@@ -1,5 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Dtos;
+using FormUI.Forms;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -29,12 +30,16 @@ namespace FormUI
             var result = _userService.GetAll().Data;
             if (result.Count < 1)
             {
-                //!!! Open Register Form!!!
-                Form registerForm = new RegisterForm(_authService,_userService);
-                registerForm.Show();
-                
+                using (RegisterForm registerForm = new RegisterForm(_authService,_userService))
+                {
+                    registerForm.Show();
+                }
+
             }
-            //textBox_user_name.Text = result[0].UserName;
+            else
+            {
+                textBox_user_name.Text = result[0].UserName;
+            }
         }
         private void button_close_Click(object sender, EventArgs e)
         {
@@ -63,14 +68,57 @@ namespace FormUI
 
         private void button_login_Click(object sender, EventArgs e)
         {
-            UserForAuthDto userForAuthDto = new UserForAuthDto
+            Login();
+        }
+
+        private void textBox_password_KeyDown(object sender, KeyEventArgs e)
+        {
+
+        }
+        private void Login()
+        {
+            var result = _authService.Login(CreateUser());
+            if (result.Success)
+            {
+                using (DashboardForm dashboardForm = new DashboardForm())
+                {
+                    dashboardForm.ShowDialog();
+                }
+                Close();
+            }
+            //MessageBox.Show(result.Message);
+        }
+
+        private UserForAuthDto CreateUser()
+        {
+            return new UserForAuthDto
             {
                 UserName = textBox_user_name.Text,
                 Password = textBox_password.Text
 
             };
-            var result = _authService.Login(userForAuthDto);
-            MessageBox.Show(result.Message);
+        }
+
+        private void pictureBox_user_Click(object sender, EventArgs e)
+        {
+            textBox_user_name.Text = _userService.GetAll().Data[0].UserName.ToString();
+        }
+        private void textBox_password_KeyDown_1(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                Login();
+            }
+        }
+
+        private void textBox_user_name_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+
+                Login();
+            }
         }
     }
 }

@@ -1,11 +1,6 @@
 ﻿using Business.Abstract;
 using Entities.Dtos;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
 
 namespace FormUI
@@ -54,6 +49,10 @@ namespace FormUI
 
         private void button_register_Click(object sender, EventArgs e)
         {
+            Register();
+        }
+        private void Register()
+        {
             UserForAuthDto userForAuthDto = new UserForAuthDto
             {
                 UserName = textBox_user_name.Text,
@@ -61,7 +60,28 @@ namespace FormUI
 
             };
             var result = _authService.Register(userForAuthDto);
+            if (result.Success)
+            {
+                using (LoginForm loginForm = new LoginForm(_userService,_authService))
+                {
+                    loginForm.Show();
+                }
+                Close();
+            }
             MessageBox.Show(result.Message);
+        }
+
+        private void pictureBox_user_Click(object sender, EventArgs e)
+        {
+            textBox_user_name.Text = "admin";
+        }
+
+        private void RegisterForm_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                Register();
+            }
         }
     }
 }

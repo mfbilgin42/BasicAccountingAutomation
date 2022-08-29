@@ -8,6 +8,7 @@ namespace Business.Contants
     {
 
         public const string UserAdded = "Kullanıcı Eklendi";
+        public const string UserRegistered = "Kayıt Oluşturuldu";
         public const string UserUpdated = "Bilgiler Güncellendi";
         public const string PasswordChanged = "Şifre Değiştirildi";
         public const string UserNameChanged = "Kullanıcı Adı Değiştirildi";

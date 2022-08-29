@@ -1,4 +1,4 @@
-﻿using Business.Abstract;
+﻿ using Business.Abstract;
 using Business.Contants;
 using Core.Entities.Concrete;
 using Core.Utilities.Business;
@@ -92,7 +92,7 @@ namespace Business.Concrete
                 PasswordSalt = passwordSalt
             };
             var result = _userService.Add(user);
-            return new SuccessResult(result.Message);
+            return new SuccessResult(Messages.UserRegistered);
         }
 
         public IResult UserExists(string userName)

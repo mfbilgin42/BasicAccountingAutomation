@@ -36,13 +36,11 @@
             this.pictureBox_user = new System.Windows.Forms.PictureBox();
             this.textBox_password = new System.Windows.Forms.TextBox();
             this.textBox_user_name = new System.Windows.Forms.TextBox();
-            this.button_collaps = new System.Windows.Forms.PictureBox();
             this.button_close = new System.Windows.Forms.PictureBox();
             this.groupBox_register.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.button_hide_password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_show_password)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_user)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_collaps)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_close)).BeginInit();
             this.SuspendLayout();
             // 
@@ -105,6 +103,7 @@
             this.pictureBox_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_user.TabIndex = 2;
             this.pictureBox_user.TabStop = false;
+            this.pictureBox_user.Click += new System.EventHandler(this.pictureBox_user_Click);
             // 
             // textBox_password
             // 
@@ -123,17 +122,6 @@
             this.textBox_user_name.TabIndex = 0;
             this.textBox_user_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             // 
-            // button_collaps
-            // 
-            this.button_collaps.Image = ((System.Drawing.Image)(resources.GetObject("button_collaps.Image")));
-            this.button_collaps.Location = new System.Drawing.Point(359, 12);
-            this.button_collaps.Name = "button_collaps";
-            this.button_collaps.Size = new System.Drawing.Size(53, 53);
-            this.button_collaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.button_collaps.TabIndex = 4;
-            this.button_collaps.TabStop = false;
-            this.button_collaps.Click += new System.EventHandler(this.button_collaps_Click);
-            // 
             // button_close
             // 
             this.button_close.Image = ((System.Drawing.Image)(resources.GetObject("button_close.Image")));
@@ -151,21 +139,21 @@
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(150)))), ((int)(((byte)(123)))), ((int)(((byte)(182)))));
             this.ClientSize = new System.Drawing.Size(483, 644);
             this.Controls.Add(this.groupBox_register);
-            this.Controls.Add(this.button_collaps);
             this.Controls.Add(this.button_close);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "RegisterForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RegisterForm";
             this.TopMost = true;
             this.Load += new System.EventHandler(this.RegisterForm_Load);
+            this.KeyDown += new System.Windows.Forms.KeyEventHandler(this.RegisterForm_KeyDown);
             this.groupBox_register.ResumeLayout(false);
             this.groupBox_register.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.button_hide_password)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_show_password)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox_user)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.button_collaps)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.button_close)).EndInit();
             this.ResumeLayout(false);
 
@@ -180,7 +168,6 @@
         private System.Windows.Forms.PictureBox pictureBox_user;
         private System.Windows.Forms.TextBox textBox_password;
         private System.Windows.Forms.TextBox textBox_user_name;
-        private System.Windows.Forms.PictureBox button_collaps;
         private System.Windows.Forms.PictureBox button_close;
     }
 }

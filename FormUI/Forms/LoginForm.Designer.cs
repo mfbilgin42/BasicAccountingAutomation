@@ -66,6 +66,7 @@
             this.button_collaps.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.button_collaps.TabIndex = 1;
             this.button_collaps.TabStop = false;
+            this.button_collaps.Tag = "Collapse";
             this.button_collaps.Click += new System.EventHandler(this.button_collaps_Click);
             // 
             // groupBox_login
@@ -127,6 +128,7 @@
             this.pictureBox_user.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox_user.TabIndex = 2;
             this.pictureBox_user.TabStop = false;
+            this.pictureBox_user.Click += new System.EventHandler(this.pictureBox_user_Click);
             // 
             // textBox_password
             // 
@@ -136,6 +138,7 @@
             this.textBox_password.TabIndex = 1;
             this.textBox_password.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
             this.textBox_password.UseSystemPasswordChar = true;
+            this.textBox_password.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_password_KeyDown_1);
             // 
             // textBox_user_name
             // 
@@ -144,6 +147,7 @@
             this.textBox_user_name.Size = new System.Drawing.Size(370, 41);
             this.textBox_user_name.TabIndex = 0;
             this.textBox_user_name.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
+            this.textBox_user_name.KeyDown += new System.Windows.Forms.KeyEventHandler(this.textBox_user_name_KeyDown);
             // 
             // LoginForm
             // 
@@ -155,6 +159,7 @@
             this.Controls.Add(this.button_close);
             this.Font = new System.Drawing.Font("Century Gothic", 13.8F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "LoginForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Login";
