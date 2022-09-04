@@ -4,3 +4,6 @@
  - Ürünlerinizin Stok Takibini Yapmanıza Olanak Tanır.
  - Müşterilerinizin Takibini Yapmanıza Olanak Tanır.
  - Sevkiyatlarınızı Girebilir Satış Faturalarınızı Oluşturabilirsiniz.
+
+
+###### Web Desteği Geliştirme Aşamsı Bitince Kaldırılacaktır.
